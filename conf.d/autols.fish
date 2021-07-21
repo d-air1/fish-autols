@@ -4,7 +4,9 @@ function __autols_hook --description "Auto ls" --on-event fish_prompt
   end
 
   if test "$__autols_last" != (pwd)
-    clear; ls
+    if (pwd) != $HOME
+      ls
+    end
   end
   set  -g __autols_last (pwd)
 end
